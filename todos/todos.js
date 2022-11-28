@@ -38,24 +38,33 @@ todoForm.addEventListener('submit', async (e) => {
 });
 
 async function displayTodos() {
-    // clear the container (.innerHTML = '')
+    const todos = await getTodos();
+
     todosEl.innerHTML = '';
 
-    // display the list of todos,
-    // call render function, pass in state and complete handler function!
-    // append to .todos
+    for (let todo of todos) {
+        const todoEl = renderTodo(todo);
+
+        todoEl.addEventListener('click', async () => {
+            await completeTodo(todo.id);
+
+            displayTodos();
+        });
+
+        todosEl.append(todoEl);
+    }
 }
 
-// add page load function
-// fetch the todos and store in state
-// call displayTodos
+window.addEventListener('load', async () => {
+    displayTodos();
+});
 
 logoutButton.addEventListener('click', () => {
     logout();
 });
 
 deleteButton.addEventListener('click', async () => {
-    // delete all todos
-    // modify state to match
-    // re displayTodos
+    await deleteAllTodos();
+
+    displayTodos();
 });
