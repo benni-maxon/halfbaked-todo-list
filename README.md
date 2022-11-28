@@ -43,3 +43,5 @@ The following is required for your assignment to be graded:
 | Users can add todos to the database | 2.5    |
 | Users can complete todos            | 2.5    |
 | Users can delete all todos          | 2.5    |
+
+<!-- init commit -->
