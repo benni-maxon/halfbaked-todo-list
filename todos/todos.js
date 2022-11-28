@@ -39,6 +39,8 @@ todoForm.addEventListener('submit', async (e) => {
 
 async function displayTodos() {
     // clear the container (.innerHTML = '')
+    todosEl.innerHTML = '';
+
     // display the list of todos,
     // call render function, pass in state and complete handler function!
     // append to .todos
